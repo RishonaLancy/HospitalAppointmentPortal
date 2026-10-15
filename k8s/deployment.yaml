@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hospital-appointment-portal
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hospital-appointment-portal
+  template:
+    metadata:
+      labels:
+        app: hospital-appointment-portal
+    spec:
+      containers:
+        - name: portal
+          image: nginx:alpine
+          ports:
+            - containerPort: 80
